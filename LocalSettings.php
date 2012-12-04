@@ -52,11 +52,20 @@ $wgEnotifWatchlist     = false; # UPO
 $wgEmailAuthentication = true;
 
 ## Database settings
-$wgDBtype           = "mysql";
-$wgDBserver         = "localhost";
-$wgDBname           = "partidowiki";
-$wgDBuser           = "partidowiki";
-$wgDBpassword       = "yBaSD3jYhNZvSvZE";
+if (isset($_SERVER["DATABASE_URL"])) {
+	$db = parse_url($_SERVER["DATABASE_URL"]);
+	$wgDBtype           = "mysql";
+	$wgDBserver         = $db["host"];
+	$wgDBname           = trim($db["path"],"/");
+	$wgDBuser           = $db["user"];
+	$wgDBpassword       = $db["pass"];
+}else{
+	$wgDBtype           = "mysql";
+	$wgDBserver         = "localhost";
+	$wgDBname           = "partidowiki";
+	$wgDBuser           = "partidowiki";
+	$wgDBpassword       = "yBaSD3jYhNZvSvZE";
+}
 
 # MySQL specific settings
 $wgDBprefix         = "";
