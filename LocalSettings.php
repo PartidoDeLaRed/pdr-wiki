@@ -51,6 +51,16 @@ $wgEnotifUserTalk      = false; # UPO
 $wgEnotifWatchlist     = false; # UPO
 $wgEmailAuthentication = true;
 
+## SenderGrid SMTP Gateway
+$wgSMTP = array(
+	'host' => "smtp.sendgrid.net",
+	'IDHost' => "partidodelared.org",
+	'port' => 25,
+	'auth' => true,
+	'username' => $_ENV["SENDGRID_USERNAME"],
+	'password' => $_ENV["SENDGRID_PASSWORD"]
+);
+
 ## Database settings
 if (isset($_SERVER["DATABASE_URL"])) {
 	$db = parse_url($_SERVER["DATABASE_URL"]);
