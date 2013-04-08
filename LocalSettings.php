@@ -152,3 +152,30 @@ $wgResourceLoaderMaxQueryLength = -1;
 # Add more configuration options below.
 
 
+$wgUploadDirectory = 'images';
+$wgUploadS3Bucket = 'pdr-mediawiki';
+$wgUploadS3SSL = false; // true if SSL should be used
+$wgPublicS3 = true; // true if public, false if authentication should be used
+$wgS3BaseUrl = "http".($wgUploadS3SSL?"s":"")."://s3.amazonaws.com/$wgUploadS3Bucket";
+$wgUploadBaseUrl = "$wgS3BaseUrl/$wgUploadDirectory";
+$wgLocalFileRepo = array(
+        'class' => 'LocalS3Repo',
+        'name' => 's3',
+        'directory' => $wgUploadDirectory,
+        'url' => $wgUploadBaseUrl ? $wgUploadBaseUrl . $wgUploadPath : $wgUploadPath,
+        'urlbase' => $wgS3BaseUrl ? $wgS3BaseUrl : "",
+        'hashLevels' => $wgHashedUploadDirectory ? 2 : 0,
+        'thumbScriptUrl' => $wgThumbnailScriptPath,
+        'transformVia404' => !$wgGenerateThumbnailOnParse,
+        'initialCapital' => $wgCapitalLinks,
+        'deletedDir' => $wgUploadDirectory.'/deleted',
+        'deletedHashLevels' => $wgFileStore['deleted']['hash'],
+        'AWS_ACCESS_KEY' => 'AKIAIAAKZAWXR6PIT6HA',
+        'AWS_SECRET_KEY' => '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',
+        'AWS_S3_BUCKET' => $wgUploadS3Bucket,
+        'AWS_S3_PUBLIC' => $wgPublicS3,
+        'AWS_S3_SSL' => $wgUploadS3SSL
+);
+require_once("$IP/extensions/LocalS3Repo/LocalS3Repo.php");
+// s3 filesystem repo - end1
+
