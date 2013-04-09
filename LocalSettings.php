@@ -96,7 +96,7 @@ $wgMemCachedServers = array();
 ## To enable image uploads, make sure the 'images' directory
 ## is writable, then set this to true:
 $wgEnableUploads  = true;
-$wgUseImageMagick = true;
+#$wgUseImageMagick = true;
 #$wgImageMagickConvertCommand = "/usr/bin/convert";
 
 # InstantCommons allows wiki to use images from http://commons.wikimedia.org
@@ -147,7 +147,6 @@ $wgDiff3 = "/usr/bin/diff3";
 # or if you have suhosin.get.max_value_length set in php.ini (then set it to
 # that value)
 $wgResourceLoaderMaxQueryLength = -1;
-
 
 
 # End of automatically generated settings.
