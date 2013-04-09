@@ -153,7 +153,6 @@ $wgResourceLoaderMaxQueryLength = -1;
 # End of automatically generated settings.
 # Add more configuration options below.
 
-$wgMaxShellMemory = 1024000;
 
 $wgUploadDirectory = 'images';
 $wgUploadS3Bucket = 'pdr-mediawiki';
