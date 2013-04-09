@@ -18,6 +18,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit;
 }
 
+
 ## Uncomment this to disable output compression
 # $wgDisableOutputCompression = true;
 
