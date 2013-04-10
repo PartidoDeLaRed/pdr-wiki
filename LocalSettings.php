@@ -181,3 +181,19 @@ $wgLocalFileRepo = array(
 require_once("$IP/extensions/LocalS3Repo/LocalS3Repo.php");
 // s3 filesystem repo - end1
 
+
+require_once("$IP/extensions/ConfirmEdit/ConfirmEdit.php");
+require_once("$IP/extensions/ConfirmEdit/ReCaptcha.php");
+
+$wgCaptchaClass = 'ReCaptcha';
+$wgReCaptchaPublicKey = '6LdBst8SAAAAAEJ8-y6fHoo3sUZCAzOELOQClfY7';
+$wgReCaptchaPrivateKey = '6LdBst8SAAAAAMCApY9u-v1KwEBZ65Jmu5i5gGPE';
+
+$ceAllowConfirmedEmail = true;
+$wgGroupPermissions['emailconfirmed']['skipcaptcha'] = true;
+$wgCaptchaTriggers['edit']          = true;
+$wgCaptchaTriggers['create']        = true;
+$wgCaptchaTriggers['addurl']        = true;
+$wgCaptchaTriggers['createaccount'] = true;
+$wgCaptchaTriggers['badlogin']      = true;
+
