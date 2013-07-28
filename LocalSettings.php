@@ -197,3 +197,8 @@ $wgCaptchaTriggers['addurl']        = true;
 $wgCaptchaTriggers['createaccount'] = true;
 $wgCaptchaTriggers['badlogin']      = true;
 
+# Disable anonymous editing
+$wgGroupPermissions['*']['edit'] = false;
+
+# Prevent new user registrations except by sysops
+$wgGroupPermissions['*']['createaccount'] = false;
