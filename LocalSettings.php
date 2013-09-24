@@ -202,3 +202,6 @@ $wgGroupPermissions['*']['edit'] = false;
 
 # Prevent new user registrations except by sysops
 $wgGroupPermissions['*']['createaccount'] = false;
+
+#Nuke
+require_once( "$IP/extensions/Nuke/Nuke.php" );
