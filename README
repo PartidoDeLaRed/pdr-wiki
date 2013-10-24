@@ -1,3 +1,7 @@
+## Warning
+
+When running on Heroku, if you use more than 1 dyno, sessions won't be sticky and users will have an intermitent session, in practice the wiki becomes unusable for editors.
+
 For system requirements, installation and upgrade details, see the files 
 RELEASE-NOTES, INSTALL, and UPGRADE.
 
